@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header>
+   <div class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header pull-right">
+          <ul class="nav navbar-nav">
+            <%== authentication_menu %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h1><%= link_to 'Blog', root_path %></h1>
+  </header>
+
+  <div class="container">
+    <% if flash[:notice].present? %>
+      <p>
+      <%= flash[:notice] %>
+      </p>
+    <% end %>
+
+
+    <%= yield %>
+  </div> <!-- .container -->
+
+</body>
+</html>

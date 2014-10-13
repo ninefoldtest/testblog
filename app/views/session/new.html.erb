@@ -1,0 +1,14 @@
+
+<section>
+  <div class="login">
+    <h2>Login</h2>
+
+    <%= form_tag '/login' do %>
+      <%= label_tag 'name', nil, :autofocus => true %>
+      <%= text_field_tag 'name' %>
+      <%= label_tag 'password' %>
+      <%= password_field_tag 'password' %>
+      <%= submit_tag 'Login' %>
+    <% end %>
+  </div>
+</section>

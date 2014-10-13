@@ -1,0 +1,20 @@
+
+  <section>
+    <div class='post'>
+      <h2><%= @post.title %></h2>
+      <article>
+        <p><%== @post.body.gsub("\n", "<br>") %></p>
+      </article>
+      <footer>
+        <p>By: Corinne <span><%= @post.created_at.strftime("Posted: %B %d, %Y") %></span></p>
+      </footer>
+
+      <%= link_to 'Back', posts_path, :class => 'post_buttons' %>
+
+      <% if @authenticated.present? %>
+          <%= link_to 'Edit', edit_post_path(@post), :class => 'post_buttons' %>
+          <%= link_to 'Delete', post_path(@post), :class => 'post_buttons', :method => 'delete', :confirm => 'Are you sure you want to delete this post?' %>
+      <% end %>
+
+    </div>
+  </section>
